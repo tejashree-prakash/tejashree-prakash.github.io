@@ -2,6 +2,7 @@
 title: "About this website"
 output: 
   html_document:
+    theme: cosmo
 ---
 
 This website was coded by Shree Prakash using RMarkdown to do all the hard work. 

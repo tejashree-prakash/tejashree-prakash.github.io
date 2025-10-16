@@ -1,6 +1,6 @@
 ---
 title: "About this website"
-output: 
+output:  
   html_document:
     theme: cosmo
 ---

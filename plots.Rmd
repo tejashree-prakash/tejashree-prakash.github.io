@@ -4,7 +4,7 @@ output:
   html_document:
     theme: cerulean
 ---
-
+ 
 We often make plots in data science. Basically, we can use Rmd the same way as usual even to create a website!
 
 Here's tidyverse.

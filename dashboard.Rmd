@@ -18,17 +18,10 @@ noaa <- noaa[sample(nrow(noaa), size = 150, replace = FALSE), ]
 ```
 
 
-### Chart A: Time Series of Temperature Values 
-```{r, echo=FALSE}
-options(htmlwidgets.sizingPolicy = htmlwidgets::sizingPolicy(
-  browser.fill = TRUE,
-  defaultWidth = "100%",
-  defaultHeight = "500px"
-))
-
-set.seed(123)
-
+### Chart A - Time Series of Temperature Values 
+```{r}
 #Filter out rows with NA or 0 for tmax/tmin
+set.seed(123)
 valid_data <- noaa %>%
   filter(!is.na(tmax), tmax != 0,
          !is.na(tmin), tmin != 0)
@@ -52,33 +45,11 @@ plot_ly(subset_data, x = ~date, y = ~tmax,
          legend = list(title = list(text = "Station ID")))
 ```
 
+Column {data-width=350}
+-------------------------------------
 
-### Chart B: Distribution Chart of Precipitation
-```{r, echo=FALSE}
-options(htmlwidgets.sizingPolicy = htmlwidgets::sizingPolicy(
-  browser.fill = TRUE,
-  defaultWidth = "100%",
-  defaultHeight = "500px"
-))
-
-#Visualize precipitation distribution by each weather station
-precip_plot <- 
-  plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
-  layout(title = "Precipitation Distribution by Station",
-         xaxis = list(title = "Station ID"),
-         yaxis = list(title = "Precipitation (tenths of mm)"))
-precip_plot
-```
-
-
-### Chart C - Scatterplot showing Snow Fall vs Snow Depth 
-```{r, echo=FALSE}
-options(htmlwidgets.sizingPolicy = htmlwidgets::sizingPolicy(
-  browser.fill = TRUE,
-  defaultWidth = "100%",
-  defaultHeight = "500px"
-))
-
+### Chart B - Scatterplot showing Snow Fall vs Snow Depth 
+```{r}
 #Filter out data that has NA for snow fall or snow depth 
 filtered_data <- noaa %>%
   filter(!is.na(snow), !is.na(snwd))
@@ -104,5 +75,16 @@ snow_plot <-
          )
 snow_plot
 ```
-<br><br>
-Go back to the [homepage](index.html). 
+
+
+### Chart C - Distribution Chart of Precipitation
+```{r}
+#Visualize precipitation distribution by each weather station
+precip_plot <- 
+  plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
+  layout(title = "Precipitation Distribution by Station",
+         xaxis = list(title = "Station ID"),
+         yaxis = list(title = "Precipitation (tenths of mm)"))
+precip_plot
+```
+

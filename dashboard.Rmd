@@ -19,31 +19,48 @@ noaa <- noaa[sample(nrow(noaa), size = 150, replace = FALSE), ]
 
 
 ### Chart A: Time Series of Temperature Values 
-```{r}
-#Show a time series between temperature values at one station
+```{r, echo=FALSE}
+options(htmlwidgets.sizingPolicy = htmlwidgets::sizingPolicy(
+  browser.fill = TRUE,
+  defaultWidth = "100%",
+  defaultHeight = "500px"
+))
 
-#Selecting 5 specific stations
-stations <- c("USC00305714", "USC00301974", "USC00300443", "USC00308746", "USC00303464")
-subset_data <- noaa %>%
-  filter(id %in% stations, !is.na(tmax), !is.na(tmin))
+set.seed(123)
 
-subset_data$date <- as.Date(subset_data$date)
+#Filter out rows with NA or 0 for tmax/tmin
+valid_data <- noaa %>%
+  filter(!is.na(tmax), tmax != 0,
+         !is.na(tmin), tmin != 0)
 
-#Produce plot showing temp changes in each station
-temp_changes <- plot_ly(subset_data, x = ~date, y = ~tmax,
-                        color = ~id, type = "scatter", mode = "markers",
-                        marker = list(size = 10)) %>%
-  add_trace(y = ~tmin, mode = "markers", marker = list(symbol = 'triangle-down', size = 10)) %>%
+#Randomly select 5 stations from valid data
+stations <- sample(unique(valid_data$id), size = min(5, length(unique(valid_data$id))))
+
+subset_data <- valid_data %>%
+  filter(id %in% stations) %>%
+  mutate(date = as.Date(date))
+
+#Produce plot of temperature changes for selected stations
+plot_ly(subset_data, x = ~date, y = ~tmax,
+        color = ~id, type = "scatter", mode = "markers",
+        marker = list(size = 10)) %>%
+  add_trace(y = ~tmin, mode = "markers",
+            marker = list(symbol = 'triangle-down', size = 10)) %>%
   layout(title = "Temperature Observations at Selected Stations",
          xaxis = list(title = "Date (year)"),
          yaxis = list(title = "Temperature (tenths of °C)"),
          legend = list(title = list(text = "Station ID")))
-temp_changes
 ```
 
 
 ### Chart B: Distribution Chart of Precipitation
-```{r}
+```{r, echo=FALSE}
+options(htmlwidgets.sizingPolicy = htmlwidgets::sizingPolicy(
+  browser.fill = TRUE,
+  defaultWidth = "100%",
+  defaultHeight = "500px"
+))
+
 #Visualize precipitation distribution by each weather station
 precip_plot <- 
   plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
@@ -55,7 +72,13 @@ precip_plot
 
 
 ### Chart C - Scatterplot showing Snow Fall vs Snow Depth 
-```{r}
+```{r, echo=FALSE}
+options(htmlwidgets.sizingPolicy = htmlwidgets::sizingPolicy(
+  browser.fill = TRUE,
+  defaultWidth = "100%",
+  defaultHeight = "500px"
+))
+
 #Filter out data that has NA for snow fall or snow depth 
 filtered_data <- noaa %>%
   filter(!is.na(snow), !is.na(snwd))
@@ -81,4 +104,5 @@ snow_plot <-
          )
 snow_plot
 ```
-
+<br><br>
+Go back to the [homepage](index.html). 

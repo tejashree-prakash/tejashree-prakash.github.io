@@ -1,10 +1,134 @@
 ---
-title: "About this website"
+title: "About Tejashree Prakash"
 output:  
   html_document:
-    theme: cosmo
+    theme: flatly
 ---
+<br>
 
-This website was coded by Shree Prakash using RMarkdown to do all the hard work. 
+### **EDUCATION**
 
+**Master of Public Health** at Columbia University, Mailman School of Public Health
+Population and Family Health | Applied Biostatistics and Public Health Data Science<br>
+May 2026
+  
+**Honors Bachelor of Science in Biology, Emphasis in Genetics/Genomics, Minor in Chemistry** at The University of Utah<br>
+May 2023
+  
+*Honors Thesis*: Interpreting the Consequences of Single-Cell CRISPR Perturbations Through Label Transfer<br><br>
+  
+  
+### **SKILLS**
+**Programming**: R, SAS
+  
+**Data Analytics**: R, SAS, SPSS, Microsoft Office
+  
+**Data Visualization**: R packages tidyverse and ggplot, Microsoft Office, Zotero
+  
+**Public Health**: Program planning and evaluation, social determinants of health
+  
+**Technical Communication**: Technical and analytical writing, cross-disciplinary communication and translation, data interpretation and synthesis, public speaking, presentation development, peer leadership, literature reviews
+  
+**Languages**: Kannada, Tamil, English<br><br> 
+
+
+### **EXPERIENCE**
+  
+**Research and Evaluation Summer Associate** at Strength in Numbers Consulting Group<br>
+Summer 2025
+  
+* Worked in a consulting environment and supported various clients, including community-based organizations and health service providers, by conducting data analysis, preparing reports, and delivering actionable recommendations to improve program effectiveness and service delivery.
+* Applied quantitative and qualitative methods to create operational reports that informed client decision-making and reviewed the previous fiscal year’s operations.
+* Authored a Metrics Handbook summarizing key quality indicators specific to minority populations for service providers to evaluate and strengthen their programming, contributing to broader capacity-building efforts.
+*Facilitated and supported weekly client meetings, managing stakeholder communications and maintaining strong client relationships.
+  
+  
+**Health Promotion Content Researcher** at Columbia University, Alice Health Promotion Office<br>
+March - Nov 2025
+  
+* Worked amongst a team of content researchers to synthesize research about health-related topics and used skills in scientific/technical translation, data synthesis, data interpretation, and cross-disciplinary communication.
+* Role included receiving anonymous health-related questions in the Ask Alice! Blog and synthesized research to create personable, engaging, succinct prose tailored to diverse audiences, particularly college-age students. 
+  
+  
+**Health Economics/Outcomes Research Assistant** at Chaiyakunapruk Lab, University of Utah<br>
+March - Nov 2024
+  
+* Led and developed the first literature scoping review that investigates the state of current literature that discusses macroeconomic effects of COVID-19 closure and containment policies in the US.
+* Analyzed policy implications of this research and developed policy and strategy recommendations for policymakers and researchers in health economics spaces. 
+* Developed the scoping review manuscript and revised for publication in the Health Affairs Scholar Journal as second author.
+  
+  
+**Public Health Research Consultant** at University of Utah, Dept. of Family and Preventative Medicine<br>
+Jan. - March 2024
+  
+* Consulted on Dr. Sharon Talboy’s qualitative public health research by consulting with expertise in data analysis and data visualization.
+* Performed Excel-based analysis to codify qualitative-based survey transcripts and create corresponding data visualizations for research publication. 
+* Contributed to data analysis and writing in article published for the Global Public Health Journal. 
+  
+  
+**Genetics/Developmental Biology Research Assistant** at Gagnon Lab, University of Utah, School of Biological Sciences<br>
+Aug. 2020 – May 2023
+  
+* Conducted data-driven research to analyze biological patterns and health outcomes.
+* Developed and applied computational methods using R, ggplot, and tidyverse for data visualization, trend analysis, and health-related data interpretation.
+* Performed large-scale data analysis on genomic datasets, demonstrating expertise in working with complex health-related data structures.
+* Performed CRISPR genetic manipulation alongside other wet-lab techniques to understand regulatory pathways in zebrafish.
+* Synthesized research findings into clear and engaging presentations for diverse audiences, refining technical communication and public health messaging skills.
+* Collaborated with interdisciplinary teams to translate biological research into actionable insights.
+* Applied expertise in data storytelling and technical translation to make scientific concepts accessible for non-expert audiences, aligning with health education and marketing initiatives.<br><br>
+  
+  
+### **INTERNSHIPS**
+
+**CDC Lewis Public Health Scholar** at Columbia University Mailman School of Public Health, CDC<br>
+Summer 2023
+  
+* Selected to participate in nationally competitive program amongst 30 public health scholars.  
+* Trained on introductory skills of biostatistics, epidemiology, and the application of public health approaches on a variety of public health contexts. 
+* Developed a financial and health literacy intervention for immigrant domestic violence survivors with the Dominican Women’s Development Center in NYC, focusing on social determinants of health. Maximized efficiency for program planning and implementation. 
+* Attended and presented at the CDC Lewis/Ferguson Public Health National Meeting. 
+* Developed SPSS programming skills for statistical analysis and data visualization. 
+  
+**Summer Program for Undergraduate Researchers** – Research Intern (Summer 2022)
+  
+**Genomics Summer Research Internship for Minorities** – Research Intern (Summer 2020, 2021)
+  
+**Clinical Genetics and Bioinformatics Summer Program** – Summer Intern (Summer 2020)<br><br>
+  
+  
+### **PUBLICATIONS**
+  
+* Cho, J.-Y., Prakash, T., Lam, W., Seegert, N., Samore, M. H., Pavia, A. T., Nelson, R. E., & Chaiyakunapruk, N. (2025). Understanding macroeconomic indicators affected by covid-19 containment policies in the United States: A scoping review. Health Affairs Scholar, 3(4). https://doi.org/10.1093/haschl/qxaf045 
+
+* Berik, G., Bhattacharya, H., Singh, T. P., Sinha, A., Strenio, J., Naomi, S. S., Zafar, S., & Talboys, S. (2024). Men’s perspectives on public-space sexual harassment of women in South Asia. Global Public Health, 19(1), 2380845. https://doi.org/10.1080/17441692.2024.2380845. 
+  * Contributed to data analysis and writing.<br><br>
+    
+    
+### **VOLUNTEER EXPERIENCES**
+  
+**Volunteer for Delirium Intervention Program** at University of Utah Hospital<br>
+July 2022 - May 2024
+
+* Performed mental and physical interventions with elder adults, many from marginalized backgrounds, daily to prevent the onset of delirium. Maintained positive cognitive statuses through efficient and effective intervention application.
+* Built skills on patience and respect in clinical spaces through building relationships with patients.
+* Identified signs of cognitive decline and associated behaviors with patients using cognitive assessments. 
+* Utilized and managed sensitive patient health information in adherence to strict HIPAA and other privacy standards. 
+* Collaborated with a team of volunteers to provide care to elderly patients with compassion, respect, and patience. 
+  
+  
+**Partnership Liaison** at Bennion Center and Ronald McDonald House<br>
+May 2022 – May 2023
+
+* Coordinated the community partnership between the Ronald McDonald House and the University of Utah’s Bennion Center in collaboration with RMHC’s Volunteer Manager and recruited student volunteers. Directly worked with underserved populations 
+* Recruited and onboarded 15 volunteers, directly working with the Volunteer Manager at the RMHC. Managed and maintained volunteer needs with RMHC needs. 
+* Greeted, checked in, guided, and aided new clients at the House front desk.<br><br>
+  
+  
+### **ACTIVITIES**
+  
+* Utah Urvashis Bollywood Fusion Dance Team – Founder, Executive Director<br>
+Fall 2022 – Summer 2024<br><br><br>
+  
+  
+  
 Go back to the [homepage](index.html). 

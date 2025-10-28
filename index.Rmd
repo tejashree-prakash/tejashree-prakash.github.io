@@ -1,28 +1,21 @@
 ---
-title: "My awesome website"
+title: "Tejashree Prakash"
 output: 
   html_document:
-    toc: true
-    toc_float: true
+    theme: flatly
 ---
  
-# This is Shree's awesome website
+![](images/headshot.jpg)<br><br>
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+### Hi, I'm **Tejashree Prakash**!<br>
 
-You can do everything you might usually do. 
+I'm a second-year Master of Public Health (MPH) candidate at Columbia University's Mailman School of Public Health.
+  
+I specialize in **Population and Family Health** with a concentration in **Biostatistics and Applied Public Health Data Science**.
+  
+My passion lies at the intersection of *applied research methods* and *health system quality improvement*. I’m particularly interested in how *social determinants of health* influence outcomes at both the individual and population levels, and in using *data-driven approaches* to promote equity and effectiveness in public health practice. I have a deep commitment to improving health outcomes related to reproductive and sexual health for minority women.<br><br>
 
-That means you can add test. 
-
-This website is an example coming from [P8105](https://p8105.com/index.html). We're making websites today! Learn more about this site [here](about.html).
-
-I also use [google](https://www.google.com/) for a ton of data science.
-
-To show that you can just use Rmd like normal, check out [this page](plots.html) with plots. 
-
-Here's a picture of Snoopy!
-
-![](images/snoopy.png)
+Click [here](about.html) to learn more about my background in public health and applied research.
 
 
 

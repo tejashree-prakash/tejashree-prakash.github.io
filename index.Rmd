@@ -17,5 +17,7 @@ My passion lies at the intersection of *applied research methods* and *health sy
 
 Click [here](about.html) to learn more about my background in public health and applied research.
 
+Click [here](dashboard.html) to see a sample of my work. 
+
 
 

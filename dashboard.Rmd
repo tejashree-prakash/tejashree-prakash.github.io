@@ -11,21 +11,19 @@ library(flexdashboard)
 library(tidyverse)
 library(plotly)
 library(p8105.datasets)
-```
 
-
-```{r}
-
+#Load data - manually CSV and took a random sample of 150 values 
 noaa <- read_csv("data/nynoaadat.csv", na=c("NA", ".", " "))
 noaa <- noaa[sample(nrow(noaa), size = 150, replace = FALSE), ]
 ```
+
 
 ### Chart A: Time Series of Temperature Values 
 ```{r}
 #Show a time series between temperature values at one station
 
 #Selecting 5 specific stations
-stations <- c("USW00094794", "USW00014771", "USW00004725", "USC00304912", "USC00308906")
+stations <- c("USC00305714", "USC00301974", "USC00300443", "USC00308746", "USC00303464")
 subset_data <- noaa %>%
   filter(id %in% stations, !is.na(tmax), !is.na(tmin))
 

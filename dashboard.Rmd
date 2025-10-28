@@ -1,0 +1,78 @@
+---
+title: "dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+```
+
+
+
+```{r}
+
+noaa <- read_csv("data/nynoaadat.csv", na=c("NA", ".", " "))
+noaa <- noaa[sample(nrow(noaa), size = 150, replace = FALSE), ]
+```
+```{r}
+#Show a time series between temperature values at one station
+noaa$date <- as.Date(noaa$date)
+
+#Selecting 3 specific stations
+stations <- c("USC00301966", "USC00304912", "USC00308906")
+subset_data <- noaa %>%
+  filter(id %in% stations, !is.na(tmax), !is.na(tmin))
+
+#Produce plot showing temp changes in each station
+plot_ly(subset_data, x = ~date) %>%
+  add_lines(y = ~tmax, color = ~id, name = ~paste(id, "TMAX"),
+            line = list(width = 1.5)) %>%
+  add_lines(y = ~tmin, color = ~id, name = ~paste(id, "TMIN"),
+            line = list(dash = 'dash', width = 1.5)) %>%
+  layout(title = "Daily Maximum and Minimum Temperature in 3 Stations",
+         xaxis = list(title = "Date"),
+         yaxis = list(title = "Temperature (tenths of °C)"),
+         legend = list(title = list(text = "Station ID")))
+```
+
+```{r}
+#Visualize precipitation distribution by each weather station
+plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
+  layout(title = "Precipitation by Station",
+         xaxis = list(title = "Station ID"),
+         yaxis = list(title = "Precipitation (tenths of mm)"))
+
+```
+
+```{r}
+#Filter out data that has NA for snow fall or snow depth 
+filtered_data <- noaa %>%
+  filter(!is.na(snow), !is.na(snwd))
+
+stations_snow <- filtered_data %>%
+  group_by(id) %>%
+  filter(all(!is.na(snow)), all(!is.na(snwd))) %>%
+  ungroup()
+
+#Visualize snow fall vs snow depth 
+plot_ly(stations_snow, 
+        x = ~snow, 
+        y = ~snwd, 
+        type = "scatter", 
+        mode = "markers",
+        color = ~id, 
+        text = ~paste("Station:", id, "<br>Date:", date)) %>%
+  layout(title = "Snowfall vs Snow Depth in Stations with Snow Data",
+         xaxis = list(title = "Snowfall (mm)"),
+         yaxis = list(title = "Snow Depth (mm)"), 
+                  legend = list(title = list(text = "Station ID"))
+         )
+
+```
+

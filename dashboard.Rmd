@@ -17,38 +17,21 @@ noaa <- read_csv("data/nynoaadat.csv", na=c("NA", ".", " "))
 noaa <- noaa[sample(nrow(noaa), size = 150, replace = FALSE), ]
 ```
 
-
-### Chart A - Time Series of Temperature Values 
+### Chart A: Distribution Plot of Precipitation
 ```{r}
-#Filter out rows with NA or 0 for tmax/tmin
-set.seed(123)
-valid_data <- noaa %>%
-  filter(!is.na(tmax), tmax != 0,
-         !is.na(tmin), tmin != 0)
-
-#Randomly select 5 stations from valid data
-stations <- sample(unique(valid_data$id), size = min(5, length(unique(valid_data$id))))
-
-subset_data <- valid_data %>%
-  filter(id %in% stations) %>%
-  mutate(date = as.Date(date))
-
-#Produce plot of temperature changes for selected stations
-plot_ly(subset_data, x = ~date, y = ~tmax,
-        color = ~id, type = "scatter", mode = "markers",
-        marker = list(size = 10)) %>%
-  add_trace(y = ~tmin, mode = "markers",
-            marker = list(symbol = 'triangle-down', size = 10)) %>%
-  layout(title = "Temperature Observations at Selected Stations",
-         xaxis = list(title = "Date (year)"),
-         yaxis = list(title = "Temperature (tenths of °C)"),
-         legend = list(title = list(text = "Station ID")))
+#Visualize precipitation distribution by each weather station
+precip_plot <- 
+  plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
+  layout(title = "Precipitation Distribution by Station",
+         xaxis = list(title = "Station ID"),
+         yaxis = list(title = "Precipitation (tenths of mm)"))
+precip_plot
 ```
 
-Column {data-width=350}
+Column {data-width=300}
 -------------------------------------
 
-### Chart B - Scatterplot showing Snow Fall vs Snow Depth 
+### Chart B: Scatterplot showing Snow Fall vs Snow Depth 
 ```{r}
 #Filter out data that has NA for snow fall or snow depth 
 filtered_data <- noaa %>%
@@ -77,14 +60,30 @@ snow_plot
 ```
 
 
-### Chart C - Distribution Chart of Precipitation
+### Chart C: Time Series of Temperature Values 
 ```{r}
-#Visualize precipitation distribution by each weather station
-precip_plot <- 
-  plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
-  layout(title = "Precipitation Distribution by Station",
-         xaxis = list(title = "Station ID"),
-         yaxis = list(title = "Precipitation (tenths of mm)"))
-precip_plot
+#Filter out rows with NA or 0 for tmax/tmin
+set.seed(123)
+valid_data <- noaa %>%
+  filter(!is.na(tmax), tmax != 0,
+         !is.na(tmin), tmin != 0)
+
+#Randomly select 5 stations from valid data
+stations <- sample(unique(valid_data$id), size = min(5, length(unique(valid_data$id))))
+
+subset_data <- valid_data %>%
+  filter(id %in% stations) %>%
+  mutate(date = as.Date(date))
+
+#Produce plot of temperature changes for selected stations
+plot_ly(subset_data, x = ~date, y = ~tmax,
+        color = ~id, type = "scatter", mode = "markers",
+        marker = list(size = 10)) %>%
+  add_trace(y = ~tmin, mode = "markers",
+            marker = list(symbol = 'triangle-down', size = 10)) %>%
+  layout(title = "Temperature Observations at Selected Stations",
+         xaxis = list(title = "Date (year)"),
+         yaxis = list(title = "Temperature (tenths of °C)"),
+         legend = list(title = list(text = "Station ID")))
 ```
 

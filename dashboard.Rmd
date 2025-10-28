@@ -17,15 +17,21 @@ noaa <- read_csv("data/nynoaadat.csv", na=c("NA", ".", " "))
 noaa <- noaa[sample(nrow(noaa), size = 150, replace = FALSE), ]
 ```
 
-### Chart A: Distribution Plot of Precipitation
+### Chart A: Total Precipitation Bar Graph
 ```{r}
-#Visualize precipitation distribution by each weather station
-precip_plot <- 
-  plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
-  layout(title = "Precipitation Distribution by Station",
+#Sum precipitation by station
+precip_sum <- noaa %>%
+  filter(!is.na(prcp)) %>%
+  group_by(id) %>%
+  summarise(total_prcp = sum(prcp))
+
+#Produce bar plot
+plot_ly(precip_sum, x = ~id, y = ~total_prcp, type = "bar",
+        text = ~total_prcp, textposition = "auto") %>%
+  layout(title = "Total Precipitation by Weather Station",
          xaxis = list(title = "Station ID"),
-         yaxis = list(title = "Precipitation (tenths of mm)"))
-precip_plot
+         yaxis = list(title = "Total Precipitation (tenths of mm)"))
+
 ```
 
 Column {data-width=300}
@@ -81,7 +87,7 @@ plot_ly(subset_data, x = ~date, y = ~tmax,
         marker = list(size = 10)) %>%
   add_trace(y = ~tmin, mode = "markers",
             marker = list(symbol = 'triangle-down', size = 10)) %>%
-  layout(title = "Temperature Observations at Selected Stations",
+  layout(title = "Temperature Observations at Selected Weather Stations",
          xaxis = list(title = "Date (year)"),
          yaxis = list(title = "Temperature (tenths of °C)"),
          legend = list(title = list(text = "Station ID")))

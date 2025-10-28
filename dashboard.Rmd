@@ -14,42 +14,49 @@ library(p8105.datasets)
 ```
 
 
-
 ```{r}
 
 noaa <- read_csv("data/nynoaadat.csv", na=c("NA", ".", " "))
 noaa <- noaa[sample(nrow(noaa), size = 150, replace = FALSE), ]
 ```
+
+### Chart A: Time Series of Temperature Values 
 ```{r}
 #Show a time series between temperature values at one station
-noaa$date <- as.Date(noaa$date)
 
-#Selecting 3 specific stations
-stations <- c("USC00301966", "USC00304912", "USC00308906")
+#Selecting 5 specific stations
+stations <- c("USW00094794", "USW00014771", "USW00004725", "USC00304912", "USC00308906")
 subset_data <- noaa %>%
   filter(id %in% stations, !is.na(tmax), !is.na(tmin))
 
+subset_data$date <- as.Date(subset_data$date)
+
 #Produce plot showing temp changes in each station
-plot_ly(subset_data, x = ~date) %>%
-  add_lines(y = ~tmax, color = ~id, name = ~paste(id, "TMAX"),
-            line = list(width = 1.5)) %>%
-  add_lines(y = ~tmin, color = ~id, name = ~paste(id, "TMIN"),
-            line = list(dash = 'dash', width = 1.5)) %>%
-  layout(title = "Daily Maximum and Minimum Temperature in 3 Stations",
-         xaxis = list(title = "Date"),
+temp_changes <- plot_ly(subset_data, x = ~date, y = ~tmax,
+                        color = ~id, type = "scatter", mode = "markers",
+                        marker = list(size = 10)) %>%
+  add_trace(y = ~tmin, mode = "markers", marker = list(symbol = 'triangle-down', size = 10)) %>%
+  layout(title = "Temperature Observations at Selected Stations",
+         xaxis = list(title = "Date (year)"),
          yaxis = list(title = "Temperature (tenths of °C)"),
          legend = list(title = list(text = "Station ID")))
+temp_changes
 ```
 
+
+### Chart B: Distribution Chart of Precipitation
 ```{r}
 #Visualize precipitation distribution by each weather station
-plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
-  layout(title = "Precipitation by Station",
+precip_plot <- 
+  plot_ly(noaa, x = ~id, y = ~prcp, type = "box") %>%
+  layout(title = "Precipitation Distribution by Station",
          xaxis = list(title = "Station ID"),
          yaxis = list(title = "Precipitation (tenths of mm)"))
-
+precip_plot
 ```
 
+
+### Chart C - Scatterplot showing Snow Fall vs Snow Depth 
 ```{r}
 #Filter out data that has NA for snow fall or snow depth 
 filtered_data <- noaa %>%
@@ -61,7 +68,8 @@ stations_snow <- filtered_data %>%
   ungroup()
 
 #Visualize snow fall vs snow depth 
-plot_ly(stations_snow, 
+snow_plot <- 
+  plot_ly(stations_snow, 
         x = ~snow, 
         y = ~snwd, 
         type = "scatter", 
@@ -73,6 +81,6 @@ plot_ly(stations_snow,
          yaxis = list(title = "Snow Depth (mm)"), 
                   legend = list(title = list(text = "Station ID"))
          )
-
+snow_plot
 ```
 
